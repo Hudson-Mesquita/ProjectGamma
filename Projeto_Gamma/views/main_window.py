@@ -16,10 +16,10 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QHeaderView, QLabel,
-    QLineEdit, QMainWindow, QMenu, QMenuBar,
-    QPushButton, QSizePolicy, QStatusBar, QTableWidget,
-    QTableWidgetItem, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QHeaderView,
+    QLabel, QLineEdit, QMainWindow, QMenu,
+    QMenuBar, QPushButton, QSizePolicy, QStatusBar,
+    QTableWidget, QTableWidgetItem, QWidget)
 
 class Ui_mainWindow(object):
     def setupUi(self, mainWindow):
@@ -51,19 +51,31 @@ class Ui_mainWindow(object):
         self.comboBox.setEditable(True)
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(310, 160, 160, 51))
+        self.pushButton.setGeometry(QRect(260, 200, 121, 31))
         self.tableWidget = QTableWidget(self.centralwidget)
-        if (self.tableWidget.columnCount() < 3):
-            self.tableWidget.setColumnCount(3)
+        if (self.tableWidget.columnCount() < 4):
+            self.tableWidget.setColumnCount(4)
         __qtablewidgetitem = QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         self.tableWidget.setObjectName(u"tableWidget")
-        self.tableWidget.setGeometry(QRect(240, 240, 301, 192))
-        self.tableWidget.setColumnCount(3)
+        self.tableWidget.setGeometry(QRect(210, 240, 401, 231))
+        self.tableWidget.setColumnCount(4)
+        self.BotaoExcluir = QPushButton(self.centralwidget)
+        self.BotaoExcluir.setObjectName(u"BotaoExcluir")
+        self.BotaoExcluir.setGeometry(QRect(440, 200, 111, 31))
+        self.dateEdit = QDateEdit(self.centralwidget)
+        self.dateEdit.setObjectName(u"dateEdit")
+        self.dateEdit.setGeometry(QRect(540, 60, 141, 24))
+        self.dateEdit.setCalendarPopup(True)
+        self.label_4 = QLabel(self.centralwidget)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QRect(440, 60, 91, 31))
         mainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(mainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -101,6 +113,10 @@ class Ui_mainWindow(object):
         ___qtablewidgetitem1.setText(QCoreApplication.translate("mainWindow", u"Valor", None));
         ___qtablewidgetitem2 = self.tableWidget.horizontalHeaderItem(2)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("mainWindow", u"Tipo", None));
+        ___qtablewidgetitem3 = self.tableWidget.horizontalHeaderItem(3)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("mainWindow", u"data", None));
+        self.BotaoExcluir.setText(QCoreApplication.translate("mainWindow", u"Excluir", None))
+        self.label_4.setText(QCoreApplication.translate("mainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:700;\">Data:</span></p></body></html>", None))
         self.menuFinancia_A.setTitle(QCoreApplication.translate("mainWindow", u"Financia A\u00ea", None))
     # retranslateUi
 
