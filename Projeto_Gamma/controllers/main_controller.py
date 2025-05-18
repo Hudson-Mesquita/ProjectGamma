@@ -1,7 +1,8 @@
 # controllers/main_controller.py
 from PySide6.QtWidgets import QMainWindow, QTableWidgetItem
 from views.main_window import Ui_mainWindow
-from database.dados import inserir_gasto, buscar_gastos, excluir_gasto
+from database.dados import inserir_gasto, buscar_gastos, excluir_gasto, calcular_saldo_total
+from PySide6.QtCore import QDate
 
 class MainController(QMainWindow):
     def __init__(self):
@@ -10,9 +11,19 @@ class MainController(QMainWindow):
         self.ui.setupUi(self)
         self.carregar_lancamentos()
         self.ui.BotaoExcluir.clicked.connect(self.excluir_lancamento)
+        self.atualizar_saldo()
 
         # conectar o botão ao método de adicionar o lançamemento
         self.ui.pushButton.clicked.connect(self.adicionar_lancamento)
+
+    def atualizar_saldo(self):
+        saldo = calcular_saldo_total()
+        self.ui.label_Saldo.setText(f"Saldo atual: R$ {saldo:.2f}")
+
+        if saldo >= 0:
+            self.ui.label_Saldo.setStyleSheet("color: green; font-weight: bold;")
+        else:
+            self.ui.label_Saldo.setStyleSheet("color: red; font-weight: bold;")
 
     def carregar_lancamentos(self):
         self.ui.tableWidget.setRowCount(0) # limpa a tabela antes de carregar
@@ -27,6 +38,8 @@ class MainController(QMainWindow):
             self.ui.tableWidget.setItem(linha, 1, QTableWidgetItem(f'{valor:.2f}'))
             self.ui.tableWidget.setItem(linha, 2, QTableWidgetItem(tipo))
             self.ui.tableWidget.setItem(linha, 3, QTableWidgetItem(data))
+
+        self.atualizar_saldo()
 
     def adicionar_lancamento(self):
         # Pegando os valores dos campos
@@ -65,6 +78,9 @@ class MainController(QMainWindow):
         self.ui.lineEdit.clear()
         self.ui.lineEdit_2.clear()
         self.ui.comboBox.setCurrentIndex(0)
+        self.ui.dateEdit.setDate(QDate.currentDate())
+
+        self.atualizar_saldo()
 
     def excluir_lancamento(self):
         linha_selecionada = self.ui.tableWidget.currentRow()
@@ -91,3 +107,5 @@ class MainController(QMainWindow):
 
         # Remove da tabela
         self.ui.tableWidget.removeRow(linha_selecionada)
+
+        self.atualizar_saldo()

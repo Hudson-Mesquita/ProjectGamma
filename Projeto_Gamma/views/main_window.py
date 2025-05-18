@@ -25,7 +25,7 @@ class Ui_mainWindow(object):
     def setupUi(self, mainWindow):
         if not mainWindow.objectName():
             mainWindow.setObjectName(u"mainWindow")
-        mainWindow.resize(800, 600)
+        mainWindow.resize(760, 584)
         self.centralwidget = QWidget(mainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.label = QLabel(self.centralwidget)
@@ -51,7 +51,7 @@ class Ui_mainWindow(object):
         self.comboBox.setEditable(True)
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(260, 200, 121, 31))
+        self.pushButton.setGeometry(QRect(260, 140, 121, 31))
         self.tableWidget = QTableWidget(self.centralwidget)
         if (self.tableWidget.columnCount() < 4):
             self.tableWidget.setColumnCount(4)
@@ -64,11 +64,11 @@ class Ui_mainWindow(object):
         __qtablewidgetitem3 = QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         self.tableWidget.setObjectName(u"tableWidget")
-        self.tableWidget.setGeometry(QRect(210, 240, 401, 231))
+        self.tableWidget.setGeometry(QRect(210, 190, 401, 231))
         self.tableWidget.setColumnCount(4)
         self.BotaoExcluir = QPushButton(self.centralwidget)
         self.BotaoExcluir.setObjectName(u"BotaoExcluir")
-        self.BotaoExcluir.setGeometry(QRect(440, 200, 111, 31))
+        self.BotaoExcluir.setGeometry(QRect(440, 140, 111, 31))
         self.dateEdit = QDateEdit(self.centralwidget)
         self.dateEdit.setObjectName(u"dateEdit")
         self.dateEdit.setGeometry(QRect(540, 60, 141, 24))
@@ -76,10 +76,13 @@ class Ui_mainWindow(object):
         self.label_4 = QLabel(self.centralwidget)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(440, 60, 91, 31))
+        self.label_Saldo = QLabel(self.centralwidget)
+        self.label_Saldo.setObjectName(u"label_Saldo")
+        self.label_Saldo.setGeometry(QRect(240, 460, 261, 31))
         mainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(mainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 800, 33))
+        self.menubar.setGeometry(QRect(0, 0, 760, 33))
         self.menuFinancia_A = QMenu(self.menubar)
         self.menuFinancia_A.setObjectName(u"menuFinancia_A")
         mainWindow.setMenuBar(self.menubar)
@@ -117,6 +120,7 @@ class Ui_mainWindow(object):
         ___qtablewidgetitem3.setText(QCoreApplication.translate("mainWindow", u"data", None));
         self.BotaoExcluir.setText(QCoreApplication.translate("mainWindow", u"Excluir", None))
         self.label_4.setText(QCoreApplication.translate("mainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:700;\">Data:</span></p></body></html>", None))
+        self.label_Saldo.setText(QCoreApplication.translate("mainWindow", u"<html><head/><body><p align=\"center\">TextLabel</p></body></html>", None))
         self.menuFinancia_A.setTitle(QCoreApplication.translate("mainWindow", u"Financia A\u00ea", None))
     # retranslateUi
 

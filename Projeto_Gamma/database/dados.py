@@ -48,3 +48,16 @@ def excluir_gasto(descricao, valor, tipo, data):
     conn.commit()
     conn.close()
 
+def calcular_saldo_total():
+    conn, cursor = conectar()
+    cursor.execute("SELECT valor, tipo FROM gastos")
+    registros = cursor.fetchall()
+    conn.close()
+
+    saldo = 0.0
+    for valor, tipo in registros:
+        if tipo.lower() == 'receita':
+            saldo += valor
+        elif tipo.lower() == 'despesa':
+            saldo -= valor
+    return saldo
