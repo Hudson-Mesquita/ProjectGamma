@@ -61,3 +61,16 @@ def calcular_saldo_total():
         elif tipo.lower() == 'despesa':
             saldo -= valor
     return saldo
+
+
+def atualizar_lancamento(desc_antiga, valor_antigo, tipo_antigo, data_antiga, nova_desc, novo_valor, novo_tipo, nova_data):
+    conn = sqlite3.connect("gastos.db")
+    cursor = conn.cursor()
+    cursor.execute("""
+        UPDATE gastos
+        SET descricao = ?, valor = ?, tipo = ?, data = ?
+        WHERE descricao = ? AND valor = ? AND tipo = ? AND data = ?
+    """, (nova_desc, novo_valor, novo_tipo, nova_data,
+          desc_antiga, valor_antigo, tipo_antigo, data_antiga))
+    conn.commit()
+    conn.close()

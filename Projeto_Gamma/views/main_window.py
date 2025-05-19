@@ -51,7 +51,7 @@ class Ui_mainWindow(object):
         self.comboBox.setEditable(True)
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(260, 140, 121, 31))
+        self.pushButton.setGeometry(QRect(210, 140, 121, 31))
         self.tableWidget = QTableWidget(self.centralwidget)
         if (self.tableWidget.columnCount() < 4):
             self.tableWidget.setColumnCount(4)
@@ -68,7 +68,7 @@ class Ui_mainWindow(object):
         self.tableWidget.setColumnCount(4)
         self.BotaoExcluir = QPushButton(self.centralwidget)
         self.BotaoExcluir.setObjectName(u"BotaoExcluir")
-        self.BotaoExcluir.setGeometry(QRect(440, 140, 111, 31))
+        self.BotaoExcluir.setGeometry(QRect(500, 140, 111, 31))
         self.dateEdit = QDateEdit(self.centralwidget)
         self.dateEdit.setObjectName(u"dateEdit")
         self.dateEdit.setGeometry(QRect(540, 60, 141, 24))
@@ -78,7 +78,10 @@ class Ui_mainWindow(object):
         self.label_4.setGeometry(QRect(440, 60, 91, 31))
         self.label_Saldo = QLabel(self.centralwidget)
         self.label_Saldo.setObjectName(u"label_Saldo")
-        self.label_Saldo.setGeometry(QRect(240, 460, 261, 31))
+        self.label_Saldo.setGeometry(QRect(280, 440, 261, 31))
+        self.BotaoEditarCategoria = QPushButton(self.centralwidget)
+        self.BotaoEditarCategoria.setObjectName(u"BotaoEditarCategoria")
+        self.BotaoEditarCategoria.setGeometry(QRect(360, 140, 111, 31))
         mainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(mainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -121,6 +124,7 @@ class Ui_mainWindow(object):
         self.BotaoExcluir.setText(QCoreApplication.translate("mainWindow", u"Excluir", None))
         self.label_4.setText(QCoreApplication.translate("mainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:700;\">Data:</span></p></body></html>", None))
         self.label_Saldo.setText(QCoreApplication.translate("mainWindow", u"<html><head/><body><p align=\"center\">TextLabel</p></body></html>", None))
+        self.BotaoEditarCategoria.setText(QCoreApplication.translate("mainWindow", u"Editar ", None))
         self.menuFinancia_A.setTitle(QCoreApplication.translate("mainWindow", u"Financia A\u00ea", None))
     # retranslateUi
 
